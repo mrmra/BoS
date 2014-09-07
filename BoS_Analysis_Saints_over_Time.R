@@ -32,7 +32,7 @@ shape <- readOGR("TM_WORLD_BORDERS_SIMPL-0.3.shp", layer="TM_WORLD_BORDERS_SIMPL
 ## not-so-nice Roman empire, we're counting based on Roman ages in early AD.
 
 ageOfGospel <- subset(saints, DECEASEDNEAR >= 0 & DECEASEDNEAR <= 100)
-lateAntiquityRome <- subset(saints, DECEASEDNEAR > 100 & DECEASEDNEAR <= 476)
+## lateAntiquityRome <- subset(saints, DECEASEDNEAR > 100 & DECEASEDNEAR <= 476)
 
 ## Hadrian builds wall, ends in universal citizenship
 hadrianPeriod <- subset(saints, DECEASEDNEAR > 100 & DECEASEDNEAR <= 200)
@@ -44,19 +44,22 @@ beginningOfByzantium <- subset(saints, DECEASEDNEAR > 200 & DECEASEDNEAR <= 300)
 constantineEmpire <- subset(saints, DECEASEDNEAR > 300 & DECEASEDNEAR <= 376)
 
 ## Christianity becomes the official religion of Rome, dissidents slaughtered 
-## Goths sack it a couple times, Emperor deposed, Popes take over.
-
+## Goths sack it a couple times, Emperor deposed, Popes take over. The 
+## "Dark Ages" begin.
 christianRomanEmpire <- subset(saints, DECEASEDNEAR > 376 & DECEASEDNEAR <= 551)
 
 ## Under Pope Gregory, the Christian Roman Empire gains strength. Pantheon
 ## becomes a Christian church.
+popeGregory <- subset(saints, DECEASEDNEAR > 551 & DECEASEDNEAR <= 725)
 
-popeGregory <- subset(saints, DECEASEDNEAR > 551 & DECEASEDNEAR <= 630)
+## Charlemagne's rule and Arab sack of Rome
+charlemagneArab <- subset(saints, DECEASEDNEAR > 725 & DECEASEDNEAR <= 860)
 
+## The city of Rome has women rulers.
+womenRule <- subset(saints, DECEASEDNEAR > 860 & DECEASEDNEAR <= 950)
 
-
-darkAges <- subset(saints, DECEASEDNEAR > 476 & DECEASEDNEAR <= 800)
-middleAges <- subset(saints, DECEASEDNEAR > 800 & DECEASEDNEAR <= 1300)
+## darkAges <- subset(saints, DECEASEDNEAR > 476 & DECEASEDNEAR <= 800)
+middleAges <- subset(saints, DECEASEDNEAR > 950 & DECEASEDNEAR <= 1300)
 renaissance <- subset(saints, DECEASEDNEAR > 1300 & DECEASEDNEAR <= 1550)
 protestantReformation <- subset(saints, DECEASEDNEAR > 1550 & DECEASEDNEAR <= 1650)
 classicist <- subset(saints, DECEASEDNEAR > 1650 & DECEASEDNEAR <= 1750)
@@ -64,8 +67,6 @@ romantic <- subset(saints, DECEASEDNEAR > 1750 & DECEASEDNEAR <= 1836)
 victorian <- subset(saints, DECEASEDNEAR > 1836 & DECEASEDNEAR <= 1901)
 earlyContemporary <- subset(saints, DECEASEDNEAR > 1901 & DECEASEDNEAR <= 1980)
 digital <- subset(saints, DECEASEDNEAR > 1980 & DECEASEDNEAR <= 2014)
-
-
 
 ## simple chart time series with rCharts and NVD3.
 
